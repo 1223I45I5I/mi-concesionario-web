@@ -1232,6 +1232,13 @@ footer .container {
     } else {
         console.error(countUpLebron.error);
     }
+
+    // Ajusta automáticamente el alto del iframe
+window.onload = function() {
+  parent.postMessage({
+    iframeHeight: document.body.scrollHeight
+  }, '*');
+};
     
 </script>
 
