@@ -6,27 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historia del Baloncesto | Desde Naismith hasta la actualidad</title>
     <meta name="description" content="Descubre la fascinante historia del baloncesto, desde su creación por James Naismith hasta los grandes iconos como Jordan, Kobe y LeBron.">
-    <link rel="stylesheet" href="8.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-  body {
+<style>
+  html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
     min-height: 100vh;
-    width: 100%;
     overflow: auto;
-    font-family: Arial, sans-serif; /* Opcional: mejora tipografía */
+    font-family: Arial;
   }
-  table {
-    width: 100%;
-    border-collapse: collapse;
+  img {
+    max-width: 100%;
+    height: auto;
   }
 </style>
 
 </head>
 <body>
+<script>
+    window.onload = function() {
+  // Ajuste inicial
+  updateIframeHeight();
+  
+  // Ajuste continuo para contenido dinámico
+  setInterval(updateIframeHeight, 500);
+  
+  function updateIframeHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({
+      type: 'setHeight',
+      height: height
+    }, '*');
+  }
+};
+</script>
     
 <header>
     <div class="header-content">
@@ -450,6 +465,22 @@
 
 
 <style>
+
+    body {
+  width: 100% !important;
+  min-width: 100% !important;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+/* Elimina márgenes en contenedores principales */
+header, main, footer {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
     :root {
         --primary-color: #1d428a; /* Azul NBA */
         --secondary-color: #c9082a; /* Rojo NBA */
@@ -784,7 +815,6 @@
     .legend-image {
         position: relative;
         height: 250px;
-        overflow: hidden;
     }
     
     .legend-image img {
@@ -797,6 +827,10 @@
     .legend-card:hover .legend-image img {
         transform: scale(1.05);
     }
+
+    .legend-card:hover .legend-image {
+    overflow: visible; /* Permite que el zoom se vea completo */
+}
     
     .legend-overlay {
         position: absolute;
