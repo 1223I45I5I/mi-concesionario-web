@@ -6,42 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historia del Baloncesto | Desde Naismith hasta la actualidad</title>
     <meta name="description" content="Descubre la fascinante historia del baloncesto, desde su creación por James Naismith hasta los grandes iconos como Jordan, Kobe y LeBron.">
+    <link rel="stylesheet" href="8.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    overflow: auto;
-    font-family: Arial;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-</style>
 
 </head>
 <body>
-<script>
-    window.onload = function() {
-  // Ajuste inicial
-  updateIframeHeight();
-  
-  // Ajuste continuo para contenido dinámico
-  setInterval(updateIframeHeight, 500);
-  
-  function updateIframeHeight() {
-    const height = document.body.scrollHeight;
-    window.parent.postMessage({
-      type: 'setHeight',
-      height: height
-    }, '*');
-  }
-};
-</script>
     
 <header>
     <div class="header-content">
@@ -87,6 +58,8 @@
         </ul>
     </nav>
 </header>
+
+
 
 <main class="container">
     <section id="origenes" class="section-with-image">
@@ -144,6 +117,12 @@
 
     <section id="momentos">
         <h2><i class="fas fa-trophy"></i> Grandes Momentos</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-year">1980</div>
+                <h3>Magic Johnson como pivote</h3>
+                <p>En el Juego 6 de las Finales de la NBA, el novato Magic Johnson juega como pivote y anota 42 puntos para dar el título a los Lakers.</p>
+            </div>
             <div class="highlight-card">
                 <div class="highlight-year">1992</div>
                 <h3>Dream Team</h3>
@@ -293,22 +272,38 @@
                 </div>
             </article>
             
+
+            <article class="legend-card">
+                <div class="legend-image">
+                    <img src="6.jpg" alt="Kobe Bryant">
+                    <div class="legend-overlay">
+                        <span>Mamba Mentality</span>
+                    </div>
+                </div>
+                <h3>Kobe Bryant</h3>
+                <p class="legend-team">Los Angeles Lakers (1996-2016)</p>
+                <p>"Black Mamba" ganó 5 anillos con los Lakers. Conocido por su ética de trabajo y mentalidad competitiva.</p>
+                <div class="legend-stats">
+                    <span><i class="fas fa-trophy"></i> 5× Campeón NBA</span>
+                    <span><i class="fas fa-star"></i> 1× MVP</span>
+                </div>
+            </article>
         </div>
     </section>
 
     <section id="global">
         <h2><i class="fas fa-globe-americas"></i> Baloncesto en el Mundo</h2>
-        <div class="world-basketball">
-            <div class="world-section">
-                <h3><i class="fas fa-basketball-ball"></i> NBA</h3>
+        <div class="world-section">
+            <h3 id="nba"><i class="fas fa-basketball-ball"></i> NBA</h3>
                 <p>La National Basketball Association es la liga profesional más importante del mundo, con equipos en Estados Unidos y Canadá. Fundada en 1946, actualmente cuenta con 30 equipos divididos en Conferencia Este y Oeste.</p>
             </div>
-            <div class="world-section">
-                <h3><i class="fas fa-flag"></i> FIBA</h3>
+        </div>
+        <div class="world-section">
+            <h3 id="fiba"><i class="fas fa-flag"></i> FIBA</h3>
                 <p>La Federación Internacional de Baloncesto organiza competiciones internacionales como la Copa del Mundo y los torneos olímpicos. Fundada en 1932, actualmente cuenta con 213 federaciones nacionales afiliadas.</p>
             </div>
             <div class="world-section">
-                <h3><i class="fas fa-star"></i> Euroleague</h3>
+                <h3 id="euroleague"><i class="fas fa-star"></i> Euroleague</h3>
                 <p>La máxima competición de clubes en Europa, con los mejores equipos del continente. Fundada en 1958, actualmente participan 18 equipos en la fase regular.</p>
             </div>
         </div>
@@ -443,22 +438,6 @@
 
 
 <style>
-
-    body {
-  width: 100% !important;
-  min-width: 100% !important;
-  overflow-x: hidden !important;
-  position: relative;
-}
-
-/* Elimina márgenes en contenedores principales */
-header, main, footer {
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
     :root {
         --primary-color: #1d428a; /* Azul NBA */
         --secondary-color: #c9082a; /* Rojo NBA */
@@ -793,6 +772,7 @@ header, main, footer {
     .legend-image {
         position: relative;
         height: 250px;
+        overflow: hidden;
     }
     
     .legend-image img {
@@ -805,10 +785,6 @@ header, main, footer {
     .legend-card:hover .legend-image img {
         transform: scale(1.05);
     }
-
-    .legend-card:hover .legend-image {
-    overflow: visible; /* Permite que el zoom se vea completo */
-}
     
     .legend-overlay {
         position: absolute;
@@ -1131,13 +1107,6 @@ footer .container {
         }
     }
 
-    html, body {
-  margin: 0;
-  padding: 0;
-  overflow: auto; /* Permite scroll si el contenido es muy largo */
-  width: 100%;
-}
-
 
 @media (max-width: 768px) {
     .footer-content {
@@ -1244,13 +1213,6 @@ footer .container {
     } else {
         console.error(countUpLebron.error);
     }
-
-    // Ajusta automáticamente el alto del iframe
-window.onload = function() {
-  parent.postMessage({
-    iframeHeight: document.body.scrollHeight
-  }, '*');
-};
     
 </script>
 
